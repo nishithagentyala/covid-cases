@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { PieChart } from "react-minimal-pie-chart";
 import Confirmed from "./api/Confirmed";
 import "./index.css";
@@ -9,14 +9,15 @@ function App() {
   const [confirm, setconfirm] = useState("");
   const [country, setcountry] = useState("");
   const [text, setText] = useState("");
-  fetch("https://api-covid19-tracker.herokuapp.com/india/state_wise")
-    .then((res) => res.json())
-    .then((data) => {
-      setconfirm(data);
-      setcountry(data);
-      console.log(data);
-    });
-
+  useEffect(() => {
+    fetch("https://covid19.mathdro.id/api")
+      .then((res) => res.json())
+      .then((data) => {
+        setconfirm(data);
+        setcountry(data);
+        console.log(data);
+      });
+  }, [confirm]);
   return (
     <div className="App">
       <Header text={text} setText={setText} />

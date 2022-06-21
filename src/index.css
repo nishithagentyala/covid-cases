@@ -4,16 +4,14 @@
   box-sizing: border-box;
 }
 body {
-  color: white;
-  background-color: darkblue;
+  color: black;
 }
 
 .top-bar {
-  border: 8px solid rgb(57, 123, 209);
+  border: 8px solid rgb(153, 190, 238);
   width: 100vw;
   display: flex;
   padding: 10px;
-  color: white;
 }
 .top-bar .heart {
   font-size: 25px;
