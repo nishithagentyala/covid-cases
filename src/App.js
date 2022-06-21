@@ -13,15 +13,16 @@ function App() {
     fetch("https://covid19.mathdro.id/api")
       .then((res) => res.json())
       .then((data) => {
-        setconfirm(data);
+        setconfirm(data.confirmed);
         setcountry(data);
         console.log(data);
       });
-  }, [confirm]);
+  }, [text]);
+
   return (
     <div className="App">
       <Header text={text} setText={setText} />
-      <Confirmed />
+      <Confirmed confirm={confirm} />
       {/* <PieChart
         className="piechart"
         data={[
